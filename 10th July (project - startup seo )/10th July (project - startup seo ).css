@@ -439,7 +439,7 @@ progress{
     }
     .contact-bg{
         background-image: url(contact-left.jpg);
-        height: 800px;
+        height: 700px;
         width: 100%;
         background-repeat: no-repeat;
         display: flex;
@@ -571,9 +571,30 @@ progress{
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         background-image: url(video-bg.jpg);
+        display: flex;
+        align-items: center;
     }
     
-    .phone{
-        height: 30px;
-        width: 30px;
+    .phone {
+       text-align: center;
+        margin-left:40px;
+        color: white;
+    }
+    .phone i{
+        font-size: larger;
+    }
+
+    footer a{
+        text-decoration: none;
+        color: #5609ce;
+        font-size: larger;
+        
+    }
+
+    footer a:hover{
+        font-weight: bolder;
+    }
+    
+    footer{
+        text-align: center;
     }
