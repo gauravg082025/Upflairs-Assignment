@@ -1,0 +1,68 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.card-container {
+  display: flex;
+  gap: 30px;
+}
+
+.card {
+  width: 250px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.card i {
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+/* Instagram specific background */
+.instagram {
+  background-color: #ec407a;
+  color: white;
+  border: none;
+}
+
+.instagram p {
+  color: white;
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  background-color: #000;
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Light version for Instagram */
+.btn.light {
+  background-color: white;
+  color: #ec407a;
+}

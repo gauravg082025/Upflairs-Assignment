@@ -1,0 +1,68 @@
+/* Common Styles */
+.navbar {
+  background-color: #005a5a;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 5px;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contact-btn {
+  background-color: white;
+  color: #005a5a;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Navbar 1: Logo Left */
+.navbar-1 {
+  justify-content: space-between;
+}
+
+/* Navbar 2: Logo Right */
+.navbar-2 {
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+/* Navbar 3: Logo Center */
+.navbar-3 {
+  justify-content: space-between;
+}
+.navbar-3 .logo {
+  order: 1;
+  flex-grow: 1;
+  text-align: center;
+}
+.navbar-3 .nav-links {
+  order: 0;
+}
+.navbar-3 .contact-btn {
+  order: 2;
+}
