@@ -1,0 +1,15 @@
+.card {
+      width: 100px;
+      height: 100px;
+      background-color:black;
+      margin: 5px;
+      display: inline-block;
+      text-align: center;
+      line-height: 100px;
+    }
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      margin: 10px 0;
+    }

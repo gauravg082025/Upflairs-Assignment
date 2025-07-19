@@ -43,6 +43,8 @@
             //     console.log(i)
             // }
 
+
+
 // ➕ 3. Summation & Product
 // Find the sum of numbers from 1 to 100.
 
@@ -53,16 +55,8 @@
 // Find the sum of squares of numbers from 1 to 10.
 // (i.e., 1² + 2² + ... + 10²)
 
+let i=1;
+for ( i>=1 && i<=100 , i++){
 
-
-// let product=1
-// for(i=1 ; i<=10;i++){
-//     product *=i;
-//     console.log(product);
-// }/
-
-// let sum=0;
-// for(i=2 ; i<=50 ; i+=2){
-//     sum+=i;
-    // console.log(sum)
-// }
+}
+   
