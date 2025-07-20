@@ -55,8 +55,104 @@
 // Find the sum of squares of numbers from 1 to 10.
 // (i.e., 1² + 2² + ... + 10²)
 
-let i=1;
-for ( i>=1 && i<=100 , i++){
+                // let sum=0;
+                // for(i=1;i<=100;i++){
+                //     sum+=i;
+                // }
+                // console.log(sum);
 
-}
-   
+                // let product=1;
+                // for(i=1;i<=10;i++){
+                //     product*=i
+                // }
+                // console.log(product);
+
+                // let sum=0;
+                // for(i=0;i<=50;i+=2){
+                //     sum+=i;
+                // }
+                // console.log(sum)
+
+                // let sum=0;
+                // for(i=0;i<=10;i++){
+                //     sum+=i**2;
+                //     }
+                //     console.log(sum);
+
+
+
+// 🧠 4. Conditionals Inside Loops
+// Print numbers from 1 to 20, skip multiples of 4 using continue.
+
+// Print numbers from 1 to 10, stop at 7 using break.
+
+// Count how many numbers between 1 and 100 are divisible by both 3 and 5.
+
+
+            // for(i=1;i<=20;i++){
+            //     if(i%4===0){
+            //         continue;
+            //     }
+            // console.log(i);
+            // }
+
+            // for(i=1;i<=10;i++){
+            //     if(i==8){
+            //         break;
+            //     }
+            //     console.log(i)
+            // }
+
+            // let count=0;
+            // for(i=1;i<=100;i++){
+            //     if(i%3===0 && i%5===0){
+            //         count++;
+            //     }
+            // }
+            // console.log(`count of no. ${count}`);
+
+
+
+// 🔂 5. Nested Loops (Without Patterns)
+// Print all pairs (i, j) where i and j go from 1 to 3.
+
+// Find all combinations of (a, b) such that a + b = 5 (1 ≤ a, b ≤ 4).
+
+            // for(i=1;i<=3;i++){
+            //     for(j=1;j<=3;j++){
+            //         console.log(`${i},${j}`);
+            //     }
+            // }
+
+            // for(a=1;a<=4;a++){
+            //     for(b=1;b<=4;b++){
+            //         if(a+b===5){
+            //         console.log(`${a},${b}`)
+            //      }
+            //     }
+            // }
+
+
+
+//             🧮 6. Logic-Based Tasks
+// Check if a given number is a prime number using a loop.
+
+// Print the factorial of a number (e.g., 6! = 720).
+
+// Print the reverse of a number using a loop (e.g., 123 → 321).
+
+// Count the number of digits in a given number using a loop.
+
+// Check if a number is a palindrome (e.g., 121, 1331) using only number operations and loops.
+
+// let number=6;
+// let factorial=1;
+// for(i=1 ; i<=number ; i++){
+//     factorial*=i;
+// }
+// console.log(factorial);
+
+// let number=2345;
+// for(i=0;i<=number;i++){
+    // console.log(number.length)
+// }
