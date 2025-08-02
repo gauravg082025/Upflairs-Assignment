@@ -112,10 +112,11 @@ body {
 #c-bg{
     background-color: #27292a;
     width: 1400;
-    height: 2000px;
+    height: auto;
     margin: 20px 80px;
     border-radius: 23px;
     padding-top: 15px;
+    padding-bottom: 13px;
 }
 
 #banner-bg {
@@ -126,7 +127,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 23px;
-  margin: 60px;
+  margin: 40px 60px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -410,6 +411,29 @@ hr{
   }
 }
 
+.lib-bg .view{
+    background-color: #EC6090;
+    border: none;
+    height: 45px;
+    width: 159.5px;
+    border-radius: 23px;
+    font-weight: 500;
+    color: #ffffff;
+    transition: 0.5s ease;
+    align-items: center;
+    cursor: pointer;
+    margin-left:415px;
+    /* margin-top: 10px; */
+    position: absolute;
+}
+
+.lib-bg .view:hover{
+    background-color: #ffffff;
+    color: #EC6090;
+
+}    
+
+
 @media (max-width: 768px) {
   .banner-content h2 {
     font-size: 28px;
@@ -470,4 +494,47 @@ hr{
     width: 100%;
     margin-top: 10px;
   }
+}
+
+.site-footer {
+  background-color:transparent;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.site-footer p{
+  background-color: transparent;
+}
+
+.site-footer a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.site-footer a:hover {
+  color: #EC6090;
+  text-decoration: underline;
+}
+
+.top-downloaded .follow{
+    background-color: #EC6090;
+    border: none;
+    height: 45px;
+    width: 80px;
+    border-radius: 23px;
+    /* font-weight: 500; */
+    color: #ffffff;
+    transition: 0.5s ease;
+    /* align-items: center; */
+    cursor: pointer;
+}
+
+.top-downloaded .follow:hover{
+ background-color: #ffffff;
+    color: #EC6090;
 }

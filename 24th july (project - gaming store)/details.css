@@ -230,8 +230,10 @@
 
 .related-games {
   padding: 40px 20px;
-  background-color: #29292a;
+  /* background-color: #29292a; */
   margin: 30px;
+  border-radius: 23px;
+  margin: 50px;
 }
 
 .container {
