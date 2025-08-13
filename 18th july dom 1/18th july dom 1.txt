@@ -1,6 +1,6 @@
     Access the element with ID "title" and update its innerText to "Welcome to JavaScript!".
 
-Select all elements with class "card" and change the background color of the third one to "lightgray".
+    Select all elements with class "card" and change the background color of the third one to "lightgray".
 
     Use querySelector to select the first <h2> element and make its text italic using style.fontStyle.
 

@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Pomodoro Timer</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Pomodoro Timer</h1>
+  <div class="container">
+    <h1>Pomodoro Timer</h1>
 
-  <div class="status" id="sessionStatus">Work</div>
-  <div class="timer">25:00</div>
-    <div class="title">Click Start to start timer</div>
-  <div class="buttons">
-    <button class="startBtn">Start</button>
-    <button class="pauseBtn">Pause</button>
-    <button class="resetBtn">Reset</button>
+    <div class="settings">
+      <label>Work (minutes): <input type="number" id="workDuration" value="25"></label>
+      <label>Short Break (minutes): <input type="number" id="shortBreakDuration" value="5"></label>
+      <label>Long Break (minutes): <input type="number" id="longBreakDuration" value="15"></label>
+      <label>Pomodoros before Long Break: <input type="number" id="pomodorosBeforeLong" value="4"></label>
+    </div>
+
+    <div class="timer">
+      <h2 id="sessionType">Work</h2>
+      <div id="countdown">25:00</div>
+    </div>
+
+    <div class="controls">
+      <button id="start">Start</button>
+      <button id="pause">Pause</button>
+      <button id="reset">Reset</button>
+    </div>
+
+    <div class="cycles" id="cycleDisplay"></div>
   </div>
 
-  <div class="cycles" id="cycleDisplay">🔴 ⚪ ⚪ ⚪</div>
-
   <script src="script.js"></script>
-
 </body>
 </html>

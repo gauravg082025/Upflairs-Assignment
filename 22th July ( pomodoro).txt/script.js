@@ -1,146 +1,97 @@
-// let workTime = 25 * 60;
-//     let shortBreakTime = 5 * 60;
-//     let longBreakTime = 15 * 60;
-//     let pomodoroRounds = 4;
+const workInput = document.getElementById("workDuration");
+const shortBreakInput = document.getElementById("shortBreakDuration");
+const longBreakInput = document.getElementById("longBreakDuration");
+const pomodorosBeforeLongInput = document.getElementById("pomodorosBeforeLong");
 
-//     let currentRound = 1;
-//     let cycle = 0;
-//     let isRunning = false;
-//     let timer;
-//     let timeLeft = workTime;
-//     let session = "Work"; // or "Short Break" or "Long Break"
+const sessionType = document.getElementById("sessionType");
+const countdown = document.getElementById("countdown");
+const cycleDisplay = document.getElementById("cycleDisplay");
 
-//     const timerEl = document.getElementById('timer');
-//     const statusEl = document.getElementById('sessionStatus');
-//     const cycleDisplay = document.getElementById('cycleDisplay');
+const startBtn = document.getElementById("start");
+const pauseBtn = document.getElementById("pause");
+const resetBtn = document.getElementById("reset");
 
-//     function updateSettings() {
-//       workTime = parseInt(document.getElementById('workDuration').value) * 60;
-//       shortBreakTime = parseInt(document.getElementById('shortBreak').value) * 60;
-//       longBreakTime = parseInt(document.getElementById('longBreak').value) * 60;
-//       pomodoroRounds = parseInt(document.getElementById('rounds').value);
+let timer;
+let timeLeft = 0;
+let isRunning = false;
+let currentCycle = 0;
+let currentSession = "work"; // work | short | long
 
-//       timeLeft = workTime;
-//       updateDisplay();
-//       updateCycleDisplay();
-//     }
+function updateCycleDisplay() {
+  const totalCycles = parseInt(pomodorosBeforeLongInput.value);
+  let display = "";
 
-//     document.querySelectorAll('.settings input').forEach(input => {
-//       input.addEventListener('change', updateSettings);
-//     });
+  for (let i = 0; i < totalCycles; i++) {
+    display += i < currentCycle ? "🔴 " : "⚪ ";
+  }
 
-//     function updateDisplay() {
-//       const minutes = Math.floor(timeLeft / 60).toString().padStart(2, '0');
-//       const seconds = (timeLeft % 60).toString().padStart(2, '0');
-//       timerEl.textContent = `${minutes}:${seconds}`;
-//       statusEl.textContent = session;
-//     }
+  cycleDisplay.textContent = display.trim();
+}
 
-//     function updateCycleDisplay() {
-//       let cycles = '';
-//       for (let i = 0; i < pomodoroRounds; i++) {
-//         cycles += i < cycle ? '🔴 ' : '⚪ ';
-//       }
-//       cycleDisplay.textContent = cycles.trim();
-//     }
+function formatTime(seconds) {
+  const min = Math.floor(seconds / 60).toString().padStart(2, '0');
+  const sec = (seconds % 60).toString().padStart(2, '0');
+  return `${min}:${sec}`;
+}
 
-//     function startTimer() {
-//       if (!isRunning) {
-//         isRunning = true;
-//         timer = setInterval(() => {
-//           timeLeft--;
-//           updateDisplay();
+function setTimer(duration, label) {
+  timeLeft = duration * 60;
+  sessionType.textContent = label;
+  countdown.textContent = formatTime(timeLeft);
+}
 
-//           if (timeLeft <= 0) {
-//             clearInterval(timer);
-//             isRunning = false;
-//             handleSessionEnd();
-//           }
-//         }, 1000);
-//       }
-//     }
+function startTimer() {
+  if (isRunning) return;
+  isRunning = true;
 
-//     function pauseTimer() {
-//       clearInterval(timer);
-//       isRunning = false;
-//     }
+  timer = setInterval(() => {
+    if (timeLeft > 0) {
+      timeLeft--;
+      countdown.textContent = formatTime(timeLeft);
+    } else {
+      clearInterval(timer);
+      isRunning = false;
 
-//     function resetTimer() {
-//       clearInterval(timer);
-//       isRunning = false;
-//       cycle = 0;
-//       currentRound = 1;
-//       session = "Work";
-//       timeLeft = workTime;
-//       updateDisplay();
-//       updateCycleDisplay();
-//     }
+      // Transition Logic
+      if (currentSession === "work") {
+        currentCycle++;
+        updateCycleDisplay();
 
-//     function handleSessionEnd() {
-//       if (session === "Work") {
-//         cycle++;
-//         if (cycle % pomodoroRounds === 0) {
-//           session = "Long Break";
-//           timeLeft = longBreakTime;
-//         } else {
-//           session = "Short Break";
-//           timeLeft = shortBreakTime;
-//         }
-//       } else {
-//         session = "Work";
-//         timeLeft = workTime;
-//       }
-//       updateDisplay();
-//       updateCycleDisplay();
-//       startTimer();
-//     }
-
-//     updateSettings();
-
-
-
-const timer= document.querySelector('.timer');
-const title= document.querySelector('.title');
-const startBtn= document.querySelector('.startBtn');
-const pauseBtn= document.querySelector('.pauseBtn');
-const resetBtn= document.querySelector('.resetBtn');
-
-//Making variables
-const WORK_TIME =1*60;
-const BREAK_TIME= 0.5*60;
-let timerId = null;
-
-
-//function to countdown 
-const countDown = (time)=>{
-    return ()=>{
-        timer.textContent= time;
-        time--;
-        if( time<0){
-            stopTimer();
-            timerId = startTimer(BREAK_TIME);
+        if (currentCycle >= parseInt(pomodorosBeforeLongInput.value)) {
+          currentSession = "long";
+          setTimer(parseInt(longBreakInput.value), "Long Break");
+          currentCycle = 0; // Reset after long break
+        } else {
+          currentSession = "short";
+          setTimer(parseInt(shortBreakInput.value), "Short Break");
         }
+      } else {
+        currentSession = "work";
+        setTimer(parseInt(workInput.value), "Work");
+      }
+
+      startTimer(); // Auto-start next session
     }
+  }, 1000);
 }
 
-//Arrow fxn to start time
-const startTimer=(startTime)=>{
-    if(timerId !== null){
-        startTimer();
-    }
-    return setInterval(countDown(startTime),1000)
+function pauseTimer() {
+  clearInterval(timer);
+  isRunning = false;
 }
 
-//Arrow fxn to stop time
-const stopTimer=()=>{
-    clearInterval(timerId);
-    timerId=null;
+function resetTimer() {
+  clearInterval(timer);
+  isRunning = false;
+  currentCycle = 0;
+  currentSession = "work";
+  updateCycleDisplay();
+  setTimer(parseInt(workInput.value), "Work");
 }
 
+startBtn.addEventListener("click", startTimer);
+pauseBtn.addEventListener("click", pauseTimer);
+resetBtn.addEventListener("click", resetTimer);
 
-
-
-//add ebvent listenr to start button
-startBtn.addEventListener('click',()=>{
-    timerId = startTimer(WORK_TIME);
-});
+// Initialize on load
+resetTimer();
